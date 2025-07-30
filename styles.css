@@ -53,6 +53,15 @@ body[dir="rtl"] * {
     font-feature-settings: "liga" 1, "kern" 1;
 }
 
+/* Prevent text flicker during language switching */
+[data-he][data-en] {
+    transition: none !important;
+}
+
+.badge-text, .hero-main-title {
+    transition: none !important;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;

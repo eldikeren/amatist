@@ -1,4 +1,7 @@
 // Particles.js Configuration with Original Colors
+
+
+
 particlesJS('particles-js', {
     particles: {
         number: {
@@ -111,7 +114,10 @@ class LanguageManager {
 
     init() {
         this.setupLanguageSwitcher();
-        this.updateLanguage('he');
+        // Add a small delay to prevent text flicker on page load
+        setTimeout(() => {
+            this.updateLanguage('he');
+        }, 100);
     }
 
     setupLanguageSwitcher() {
@@ -145,7 +151,8 @@ class LanguageManager {
         elements.forEach(element => {
             const text = element.getAttribute(`data-${this.currentLang}`);
             if (text) {
-                element.textContent = text;
+                // Use innerHTML to preserve any HTML structure and prevent text rendering issues
+                element.innerHTML = text;
             }
         });
 
