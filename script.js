@@ -156,6 +156,14 @@ class LanguageManager {
     updateElements() {
         const elements = document.querySelectorAll('[data-he][data-en]');
         elements.forEach(element => {
+            // Skip problematic elements that should not be updated by language manager
+            if (element.classList.contains('hero-main-title') || 
+                element.classList.contains('badge-text') ||
+                element.textContent.includes('בע"מ') ||
+                element.textContent.includes('מנכ"ל')) {
+                return; // Skip this element
+            }
+            
             const text = element.getAttribute(`data-${this.currentLang}`);
             if (text) {
                 // Use textContent for better text rendering and to avoid HTML injection issues
