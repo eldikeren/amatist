@@ -1,4 +1,4 @@
-// Particles.js Configuration with Purple Elements
+// Particles.js Configuration with Original Colors
 particlesJS('particles-js', {
     particles: {
         number: {
@@ -9,7 +9,7 @@ particlesJS('particles-js', {
             }
         },
         color: {
-            value: ['#8b5cf6', '#a78bfa', '#06b6d4', '#0ea5e9', '#1e3a8a']
+            value: '#ffffff'
         },
         shape: {
             type: 'circle',
@@ -41,7 +41,7 @@ particlesJS('particles-js', {
         line_linked: {
             enable: true,
             distance: 150,
-            color: '#8b5cf6',
+            color: '#ffffff',
             opacity: 0.4,
             width: 1
         },
