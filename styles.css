@@ -56,10 +56,18 @@ body[dir="rtl"] * {
 /* Prevent text flicker during language switching */
 [data-he][data-en] {
     transition: none !important;
+    will-change: auto;
 }
 
 .badge-text, .hero-main-title {
     transition: none !important;
+    will-change: auto;
+}
+
+/* Ensure Hebrew text is rendered properly from the start */
+[data-he][data-en]:not([data-he=""]) {
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .container {

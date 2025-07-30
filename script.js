@@ -113,11 +113,15 @@ class LanguageManager {
     }
 
     init() {
+        // Set initial language state immediately to prevent flicker
+        this.currentLang = 'he';
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'he');
+        
         this.setupLanguageSwitcher();
-        // Add a small delay to prevent text flicker on page load
-        setTimeout(() => {
-            this.updateLanguage('he');
-        }, 100);
+        
+        // Don't update elements on init - let the HTML content be displayed as-is
+        // this.updateElements();
     }
 
     setupLanguageSwitcher() {
@@ -131,6 +135,9 @@ class LanguageManager {
     }
 
     updateLanguage(lang) {
+        // Only update if language actually changes
+        if (this.currentLang === lang) return;
+        
         this.currentLang = lang;
         
         // Update HTML direction
@@ -151,8 +158,8 @@ class LanguageManager {
         elements.forEach(element => {
             const text = element.getAttribute(`data-${this.currentLang}`);
             if (text) {
-                // Use innerHTML to preserve any HTML structure and prevent text rendering issues
-                element.innerHTML = text;
+                // Use textContent for better text rendering and to avoid HTML injection issues
+                element.textContent = text;
             }
         });
 
