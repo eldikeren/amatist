@@ -29,6 +29,10 @@ body {
     color: var(--text-dark);
     background-color: var(--white);
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga" 1, "kern" 1;
 }
 
 body[dir="ltr"] {
@@ -39,6 +43,14 @@ body[dir="ltr"] {
 body[dir="rtl"] {
     direction: rtl;
     text-align: right;
+}
+
+/* Hebrew text rendering optimization */
+body[dir="rtl"] * {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga" 1, "kern" 1;
 }
 
 .container {
@@ -326,6 +338,10 @@ body[dir="ltr"] .language-switcher {
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga" 1, "kern" 1;
 }
 
 .hero-subtitle {
@@ -486,6 +502,19 @@ body[dir="ltr"] .language-switcher {
     align-items: center;
     gap: 8px;
     box-shadow: var(--shadow-medium);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.badge-text {
+    font-family: 'Assistant', 'Alef', sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga" 1, "kern" 1;
+    white-space: nowrap;
+    overflow: visible;
 }
 
 body[dir="ltr"] .owner-badge {
